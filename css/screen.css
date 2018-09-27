@@ -2,12 +2,48 @@
 #FONTS
 \*------------------------------------*/
 
+@font-face {
+    font-family: "Inter UI medium";
+    font-weight: 200;
+    src: url("../fonts/Inter-UI-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter UI bold";
+    font-weight: 200;
+    src: url("../fonts/Inter-UI-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter UI regular";
+    font-weight: 200;
+    src: url("../fonts/Inter-UI-Regular.woff2") format("woff2");
+}
+
 /*------------------------------------*\
 #Variables
 \*------------------------------------*/
 
 :root {
-
+    --main-bg-color: coral;
+    --color-alpha: #3385FF;
+    --color-alpha-xx-light: #DCEAFF;
+    --color-alpha-x-light: #81ADF0;
+    --color-alpha-light: #4F95FF;
+    --color-alpha: #3385FF;
+    --color-alpha-dark: #2E77E6;
+    --color-neutral-xxxx-light: #F5F6FA;
+    --color-neutral-xxx-light: #E2E3E7;
+    --color-neutral-xx-light: #CACCD4;
+    --color-neutral-x-light: #B5B6C0;
+    --color-neutral-light: #A0A1AD;
+    --color-neutral: #8B8C9A;
+    --color-neutral-dark: #757787;
+    --color-neutral-x-dark: #606274;
+    --color-neutral-xx-dark: #4B4C60;
+    --color-neutral-xxx-dark: #35374D;
+    --color-neutral-xxxx-dark: #20223A;
+    --color-shadow: #20223a15
 }
 
 /* CSS variables here */
@@ -25,17 +61,16 @@
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
-    color: grey;
+    font-family: "Inter UI regular", arial, sans-serif;
+    color: #20223a;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: white;
+    background-color: #F5F6FA;
+    height: 100vh;
 }
 
-*,
-*:before,
-*:after {
+*, *:before, *:after {
     box-sizing: inherit;
 }
 
@@ -47,13 +82,13 @@ html {
 */
 
 ::-moz-selection {
-    background: HotPink;
+    background: var(--color-alpha);
     color: white;
     text-shadow: none;
 }
 
 ::selection {
-    background: HotPink;
+    background: var(--color-alpha);
     color: white;
     text-shadow: none;
 }
@@ -73,15 +108,17 @@ img {
     vertical-align: top;
 }
 
+svg {
+    height: 24px;
+}
+
 /*
     Elements: typography
     ---
     Default markup for typographic elements
 */
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
     font-weight: 600;
 }
 
@@ -103,31 +140,21 @@ h3 {
     margin: 0 0 24px;
 }
 
-h4,
-h5,
-h6 {
+h4, h5, h6 {
     font-size: 20px;
     line-height: 24px;
     margin: 0 0 24px;
 }
 
-p,
-ol,
-ul,
-dl,
-table,
-address,
-figure {
+p, ol, ul, dl, table, address, figure {
     margin: 0 0 24px;
 }
 
-ul,
-ol {
+ul, ol {
     padding-left: 24px;
 }
 
-li ul,
-li ol {
+li ul, li ol {
     margin-bottom: 0;
 }
 
@@ -158,18 +185,16 @@ hr {
 }
 
 a {
-    color: HotPink;
+    color: #3385FF;
     transition: all .1s ease-in-out;
 }
 
-a:visited,
-a:active {
-    color: HotPink;
+a:visited, a:active {
+    color: #3385FF;
 }
 
-a:hover,
-a:focus {
-    color: DeepPink;
+a:hover, a:focus {
+    color: #3385FF;
 }
 
 /*------------------------------------*\
@@ -189,6 +214,8 @@ a:focus {
 
 .o-row--login {
     /* stuff here to align the card */
+    flex: 1;
+    height: 100%;
 }
 
 /* size modifiers */
@@ -226,7 +253,8 @@ a:focus {
 .o-container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 79.5em; /* 79.5 * 16px = 1272 */
+    max-width: 79.5em;
+    /* 79.5 * 16px = 1272 */
     width: 100%;
 }
 
@@ -240,19 +268,18 @@ a:focus {
     position: relative;
 }
 
-.o-section + .o-section {
+.o-section+.o-section {
     padding-top: 24px;
 }
 
 @media (min-width: 768px) {
-    .o-section--lg + .o-section--lg,
-    .o-section--xl + .o-section--xl {
+    .o-section--lg+.o-section--lg, .o-section--xl+.o-section--xl {
         padding-top: 48px;
     }
 }
 
 @media (min-width: 992px) {
-    .o-section--xl + .o-section--xl {
+    .o-section--xl+.o-section--xl {
         padding-top: 72px;
     }
 }
@@ -282,7 +309,7 @@ a:focus {
     margin: 0 -12px;
 }
 
-.o-layout--gutter > .o-layout__item {
+.o-layout--gutter>.o-layout__item {
     padding: 0 12px;
 }
 
@@ -290,7 +317,7 @@ a:focus {
     margin: 0 -6px;
 }
 
-.o-layout--gutter-sm > .o-layout__item {
+.o-layout--gutter-sm>.o-layout__item {
     padding: 0 6px;
 }
 
@@ -298,7 +325,7 @@ a:focus {
     margin: 0 -24px;
 }
 
-.o-layout--gutter-lg > .o-layout__item {
+.o-layout--gutter-lg>.o-layout__item {
     padding: 0 24px;
 }
 
@@ -306,7 +333,7 @@ a:focus {
     margin: 0 -48px;
 }
 
-.o-layout--gutter-xl > .o-layout__item {
+.o-layout--gutter-xl>.o-layout__item {
     padding: 0 48px;
 }
 
@@ -406,18 +433,14 @@ a:focus {
     width: auto;
     overflow: visible;
     background: transparent;
-
     /* inherit font & color from ancestor */
     color: inherit;
     font: inherit;
-
     /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
     line-height: normal;
-
     /* Corrects font smoothing for webkit */
     -webkit-font-smoothing: inherit;
     -moz-osx-font-smoothing: inherit;
-
     /* Corrects inability to style clickable `input` types in iOS */
     -webkit-appearance: none;
 }
@@ -432,11 +455,49 @@ a:focus {
     Website main logo
 */
 
+.c-logo {
+    font-size: 24px;
+    text-align: center;
+}
+
+.c-logo__symbol {
+    height: 100%;
+    display: block;
+}
+
 /*
     Component: Card
     ---
     Card with box shadow
 */
+
+.c-card {
+    display: block;
+    background-color: white;
+    box-shadow: 0px 0px 4px #E2E3E7;
+}
+
+.c-card__body {
+    padding: 48px;
+}
+
+.c-card__title {
+    text-align: center;
+    padding-top: 50px;
+    font-family: "Inter UI medium"
+}
+
+.c-card__footer {
+    border-top: 12px;
+    padding: 24px;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0px -1px #E2E3E7;
+}
+
+.c-card__footer-center {
+    margin: 0px;
+}
 
 /*
     Component: Forms
@@ -451,10 +512,23 @@ a:focus {
 */
 
 .c-input {
-
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    border-radius: 4px;
+    font-family: "Inter UI regular";
+    font-size: 16px;
+    line-height: 24px;
+    padding: 12px;
+    outline: none;
+    border-color: #E2E3E7;
+    box-shadow: inset 0 1px 1px var(--color-shadow);
 }
 
 .c-input:focus {
+    border-color: #81ADF0;
+    box-shadow: h-offset v-offset blur spread #DCEAFF;
 }
 
 /*
@@ -464,14 +538,22 @@ a:focus {
 */
 
 .c-label {
+    line-height: 16px;
+    margin-bottom: 8px;
+    color: var(--color-neutral-x-dark);
+}
 
+.c-label--option {
+    margin-left: 8px;
+}
+
+.c-password {
+    text-align: center;
 }
 
 /* If a input is focused within the form-field class change te color of the label */
 
-.c-form-field:focus-within .c-label {
-
-}
+.c-form-field:focus-within .c-label {}
 
 /*
     Custom option
@@ -479,22 +561,15 @@ a:focus {
     Custom checkboxes & radio buttons
 */
 
-.c-custom-option {
-
-}
+.c-custom-option {}
 
 /* Hide the actual input but still be able to focus on it */
-.c-custom-option__input {
 
-}
+.c-custom-option__input {}
 
-.c-custom-option__label {
+.c-custom-option__label {}
 
-}
-
-.c-custom-option__fake-option {
-
-}
+.c-custom-option__fake-option {}
 
 .c-custom-option__symbol {
     /* Hide the svg initially */
@@ -502,29 +577,21 @@ a:focus {
 
 /* focused state */
 
-.c-custom-option__input:focus + .c-custom-option__label .c-custom-option__fake-option {
-
-}
+.c-custom-option__input:focus+.c-custom-option__label .c-custom-option__fake-option {}
 
 /* checked state */
 
-.c-custom-option__input:checked + .c-custom-option__label .c-custom-option__fake-option {
+.c-custom-option__input:checked+.c-custom-option__label .c-custom-option__fake-option {}
 
-}
-
-.c-custom-option__input:checked + .c-custom-option__label .c-custom-option__symbol {
+.c-custom-option__input:checked+.c-custom-option__label .c-custom-option__symbol {
     /* Show the svg when the invisible checkbox is checked */
 }
 
-.c-custom-option__input:checked + .c-custom-option__label .c-custom-option__path {
-
-}
+.c-custom-option__input:checked+.c-custom-option__label .c-custom-option__path {}
 
 /* focused & checked state */
 
-.c-custom-option__input:focus:checked + .c-custom-option__label .c-custom-option__fake-option {
-
-}
+.c-custom-option__input:focus:checked+.c-custom-option__label .c-custom-option__fake-option {}
 
 /*
     Component: Button
@@ -533,24 +600,24 @@ a:focus {
 */
 
 .c-button {
-
+    background-color: #3385FF;
+    border-color: #2E77E6;
+    color: white;
+    font-family: "Inter UI regular";
+    padding: 20px;
+    width: 100%;
 }
 
-.c-button:hover {
-
-}
+.c-button:hover {}
 
 .c-button:focus {
-
+    outline: none;
+    box-shadow: h-offset v-offset blur spread #81ADF0;
 }
 
-.c-button:active {
+.c-button:active {}
 
-}
-
-.c-button--block {
-
-}
+.c-button--block {}
 
 /*------------------------------------*\
 #UTILITIES
@@ -568,6 +635,22 @@ a:focus {
 
 .u-color-neutral-dark {
     color: Black;
+}
+
+.u-logo__symbol-light {
+    fill: #3385FF
+}
+
+.u-logo__symbol-dark {
+    fill: #1B4186;
+}
+
+.u-color-neutral-light {
+    fill: white;
+}
+
+.u-background-colored {
+    background-image: linear-gradient(to bottom right, #3385FF, #245DB3);
 }
 
 /*
@@ -629,7 +712,6 @@ a:focus {
 .u-max-width-none {
     max-width: none !important;
 }
-
 
 /*
     Utilities: align
@@ -893,9 +975,7 @@ No media query since this is the default in mobile first design
 */
 
 @media print {
-    *,
-    *:before,
-    *:after {
+    *, *:before, *:after {
         background: transparent !important;
         color: #000 !important;
         /* Black prints faster:
@@ -903,8 +983,7 @@ No media query since this is the default in mobile first design
         box-shadow: none !important;
         text-shadow: none !important;
     }
-    a,
-    a:visited {
+    a, a:visited {
         text-decoration: underline;
     }
     a[href]:after {
@@ -917,15 +996,13 @@ No media query since this is the default in mobile first design
     * Don't show links that are fragment identifiers,
     * or use the `javascript:` pseudo protocol
     */
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
+    a[href^="#"]:after, a[href^="javascript:"]:after {
         content: "";
     }
     pre {
         white-space: pre-wrap !important;
     }
-    pre,
-    blockquote {
+    pre, blockquote {
         border: 1px solid #999;
         page-break-inside: avoid;
     }
@@ -936,18 +1013,14 @@ No media query since this is the default in mobile first design
     thead {
         display: table-header-group;
     }
-    tr,
-    img {
+    tr, img {
         page-break-inside: avoid;
     }
-    p,
-    h2,
-    h3 {
+    p, h2, h3 {
         orphans: 3;
         widows: 3;
     }
-    h2,
-    h3 {
+    h2, h3 {
         page-break-after: avoid;
     }
 }
