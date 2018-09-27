@@ -213,14 +213,13 @@ a:hover, a:focus {
 
 .o-row {
     position: relative;
-    display: flex;
-    align-items: center;
-    height: 100%;
 }
 
 .o-row--login {
     /* stuff here to align the card */
-    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
     height: 100%;
 }
 
