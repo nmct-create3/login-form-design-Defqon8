@@ -606,6 +606,7 @@ a:hover, a:focus {
     font-family: "Inter UI regular";
     padding: 20px;
     width: 100%;
+    text-align: center;
 }
 
 .c-button:hover {}
