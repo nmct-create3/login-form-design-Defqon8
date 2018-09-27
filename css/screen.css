@@ -74,6 +74,10 @@ html {
     box-sizing: inherit;
 }
 
+body {
+    height: 100vh;
+}
+
 /*
 * Remove text-shadow in selection highlight:
 * https://twitter.com/miketaylr/status/12228805301
@@ -209,7 +213,9 @@ a:hover, a:focus {
 
 .o-row {
     position: relative;
-    padding: 24px 24px 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .o-row--login {
@@ -256,7 +262,6 @@ a:hover, a:focus {
     max-width: 79.5em;
     /* 79.5 * 16px = 1272 */
     width: 100%;
-    transform: translateY(10%);
 }
 
 /*
@@ -459,7 +464,6 @@ a:hover, a:focus {
 .c-logo {
     font-size: 24px;
     text-align: center;
-    padding-top: 24px;
 }
 
 .c-logo__symbol {
